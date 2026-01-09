@@ -4,6 +4,9 @@ Personal portfolio website built to showcase my work as a backend-focused softwa
 
 The site follows a terminal-inspired design and highlights my experience, projects, skills, and education with a focus on clean UX, performance, and simplicity.
 
+## Live
+🔗 **Live Website:** https://portfolio-opal-six-0waexrkn9r.vercel.app/
+
 ## Tech Stack
 - React
 - Vite
@@ -14,12 +17,13 @@ The site follows a terminal-inspired design and highlights my experience, projec
 
 ## Features
 - Terminal-inspired UI
-- Responsive layout (desktop & mobile)
+- Responsive design (desktop & mobile)
 - Dark / Light mode
 - Smooth section navigation
-- Clean, minimal design
+- Minimal, performance-focused layout
 
 ## Local Development
+
 ```bash
 bun install
 bun run dev
