@@ -1,6 +1,9 @@
 import { useState, useEffect } from "react";
+import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 export default function Projects() {
+  const { ref, isVisible } = useScrollAnimation();
+
   const projects = [
     {
       title: "Grid-Scale F1: 2D Racing Simulation Engine",
@@ -70,15 +73,18 @@ export default function Projects() {
 
   return (
     <section id="projects" className="py-12 px-6 max-w-6xl mx-auto">
-      <h2 className="font-mono text-accent mb-8 text-3xl font-bold">
-        # Projects
+      <h2
+        ref={ref as React.RefObject<HTMLHeadingElement>}
+        className={`font-mono mb-8 text-3xl font-bold scroll-animate-left ${isVisible ? 'visible' : ''}`}
+      >
+        <span className="text-accent text-glow">#</span> <span className="text-gray-900 dark:text-white">Built & Shipped</span>
       </h2>
 
       <div className="relative flex items-center justify-center gap-6">
         {/* Left Arrow */}
         <button
           onClick={goToPrevious}
-          className="flex-shrink-0 p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+          className="flex-shrink-0 p-2 rounded-full hover:bg-gray-100 dark:hover:bg-cyber-light transition-colors border border-transparent hover:border-gray-300 dark:hover:border-accent hover-lift"
           aria-label="Previous project"
         >
           <svg
@@ -98,12 +104,12 @@ export default function Projects() {
 
         {/* Project Card */}
         <div className="flex-1 max-w-2xl">
-          <div className="p-6 border border-gray-200 dark:border-gray-700 rounded-md bg-white dark:bg-gray-900 min-h-80 flex flex-col">
+          <div className="p-6 card-cyber min-h-80 flex flex-col transition-all duration-300">
             <div className="mb-3 flex items-start justify-between">
               <div className="flex-1">
                 <div className="flex items-center gap-2 mb-2">
                   <svg
-                    className="w-5 h-5 text-accent"
+                    className="w-5 h-5 text-accent animate-float"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -117,11 +123,11 @@ export default function Projects() {
                   </svg>
                 </div>
 
-                <h3 className="text-lg font-semibold text-accent">
+                <h3 className="text-lg font-semibold text-accent dark:text-accent font-mono">
                   {project.title}
                 </h3>
 
-                <p className="text-xs text-gray-600 dark:text-gray-400 font-mono">
+                <p className="text-xs text-gray-500 dark:text-gray-400 font-mono mt-1">
                   {project.timeline}
                 </p>
               </div>
@@ -131,11 +137,11 @@ export default function Projects() {
                   href={project.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="ml-3 flex-shrink-0 hover:opacity-80 transition-opacity"
+                  className="ml-3 flex-shrink-0 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-accent transition-colors hover-lift"
                   aria-label="View on GitHub"
                 >
                   <svg
-                    className="w-6 h-6 text-gray-700 dark:text-gray-300"
+                    className="w-6 h-6"
                     fill="currentColor"
                     viewBox="0 0 24 24"
                   >
@@ -154,7 +160,7 @@ export default function Projects() {
                 {project.technologies.map((tech) => (
                   <span
                     key={tech}
-                    className="inline-flex items-center px-2 py-1 text-xs font-medium bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 rounded-sm border border-transparent hover:border-accent transition-colors duration-150"
+                    className="inline-flex items-center px-2 py-1 text-xs font-mono bg-gray-100 dark:bg-cyber-darker text-gray-700 dark:text-gray-300 rounded-sm border border-gray-300 dark:border-cyber-light hover:border-gray-400 dark:hover:border-accent hover:text-gray-900 dark:hover:text-accent transition-all duration-150 hover-lift"
                   >
                     {tech}
                   </span>
@@ -167,7 +173,7 @@ export default function Projects() {
         {/* Right Arrow */}
         <button
           onClick={goToNext}
-          className="flex-shrink-0 p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+          className="flex-shrink-0 p-2 rounded-full hover:bg-gray-100 dark:hover:bg-cyber-light transition-colors border border-transparent hover:border-gray-300 dark:hover:border-accent hover-lift"
           aria-label="Next project"
         >
           <svg
@@ -195,7 +201,7 @@ export default function Projects() {
             className={`h-2 rounded-full transition-all ${
               idx === currentIndex
                 ? "bg-accent w-6"
-                : "bg-gray-400 dark:bg-gray-600 w-2 hover:bg-gray-500"
+                : "bg-gray-400 dark:bg-gray-600 w-2 hover:bg-accent"
             }`}
             aria-label={`Go to project ${idx + 1}`}
           />

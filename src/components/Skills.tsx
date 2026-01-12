@@ -1,4 +1,8 @@
+import { useScrollAnimation } from '../hooks/useScrollAnimation';
+
 export default function Skills() {
+  const { ref, isVisible } = useScrollAnimation();
+
   const categories = [
     {
       title: 'Programming Languages',
@@ -102,19 +106,24 @@ export default function Skills() {
 
   return (
   <section id="skills" className="py-12 px-6 max-w-6xl mx-auto">
-      <h2 className="font-mono text-accent mb-4 text-3xl font-bold"># Skills</h2>
+      <h2
+        ref={ref as React.RefObject<HTMLHeadingElement>}
+        className={`font-mono mb-4 text-3xl font-bold scroll-animate-left ${isVisible ? 'visible' : ''}`}
+      >
+        <span className="text-accent text-glow">#</span> <span className="text-gray-900 dark:text-white">Tech Arsenal</span>
+      </h2>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
         {categories.map((cat) => (
-          <div key={cat.title}>
-            <h3 className="font-medium text-accent mb-3">
+          <div key={cat.title} className="animate-slide-up">
+            <h3 className="font-medium text-accent dark:text-accent mb-3 font-mono">
               {cat.title}
             </h3>
             <div className="flex flex-wrap gap-2">
               {cat.items.map((skill) => (
                 <span
                   key={skill}
-                  className="inline-flex items-center px-2 py-1 text-xs font-medium bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 rounded-sm border border-transparent hover:border-accent transition-colors duration-150"
+                  className="inline-flex items-center px-2 py-1 text-xs font-mono bg-gray-100 dark:bg-cyber-darker text-gray-700 dark:text-gray-300 rounded-sm border border-gray-300 dark:border-cyber-light hover:border-gray-400 dark:hover:border-accent hover:text-gray-900 dark:hover:text-accent transition-all duration-150 hover-lift"
                 >
                   {skill}
                 </span>
