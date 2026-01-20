@@ -5,12 +5,6 @@ export default function Education() {
 
   const education = [
     {
-      degree: 'MBA – Finance',
-      institution: 'Andhra University',
-      timeline: 'JAN 2025 — Present',
-      grade: '9.4 CGPA',
-    },
-    {
       degree: 'B.Tech - Computer Science and Engineering',
       institution:
         'NSRIT, Jawaharlal Nehru Technological University - Gurujada Vizianagaram',

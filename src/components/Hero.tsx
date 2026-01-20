@@ -35,7 +35,7 @@ export default function Hero() {
           </h2>
 
           <p className="max-w-xl text-gray-700 dark:text-gray-300 leading-relaxed mb-8">
-            I'm a Software Engineer specializing in Golang and backend architectures. Currently optimizing microservices and engineering high-performance solutions. MBA candidate with a knack for technical leadership.
+            I'm a Software Engineer specializing in Golang and backend architectures. Currently optimizing microservices and engineering high-performance solutions.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 mb-8">

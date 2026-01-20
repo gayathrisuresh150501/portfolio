@@ -26,7 +26,7 @@ export const projects: Project[] = [
       "Fault Injection",
       "Testing",
     ],
-    // GitHub repo will be added once project is published
+    github: "https://github.com/gayathrisuresh150501/racing-chaos-engineering",
   },
   {
     title: "Portfolio Website",
